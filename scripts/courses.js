@@ -7,7 +7,7 @@ do {
     var x = prompt("Input course code:");
 }
 while(
-    typeof parseInt(x) !== 'number'
+    !(!isNaN(Number(x)) && x.length === 4)
     );
 
 let create = true
@@ -18,8 +18,8 @@ for (i in courseList) {
             create = false
         }
     }
-    
-    }
+}
+
 if (create == true){
     courseList['class4'] = {code: "ACIT "+x, name: null}
     console.log("Successfully added class "+courseList['class4']['code'])
