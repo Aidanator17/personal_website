@@ -28,10 +28,8 @@ header a {
     padding-left: 1%;
 }
 
-.change {
+div {
     border-top: 2px solid lightgray;
-    padding-top: 2.45%;
-    display: inline;
 }
 
 .fall {
@@ -48,7 +46,7 @@ article {
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: 100px 100px 100px;
-    align-items: center;
+    align-items: stretch;
     font-size: 20px;
 }
 .nob {
