@@ -31,7 +31,9 @@ function findCourse(courselist, classnum){
             if (courselist[i][a].includes(String(x))) {
                 var classitem = document.getElementsByClassName('c'+String(x))
                 classitem[0].style.backgroundColor = "green"
+                classitem[0].style.color = "white"
                 classitem[1].style.backgroundColor = "green"
+                classitem[1].style.color = "white"
                 // console.log("Yes I am taking the course: "+courselist[i]['code'])
                 create = false
             }
