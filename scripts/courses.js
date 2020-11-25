@@ -14,32 +14,50 @@ function createCourseArray() {
             classnum += 1
         }
       }
-      console.log(courseList)
-      return courseList
+      return courseList, classnum
 }
 
-function findCourse(courselist){
+function findCourse(courselist, classnum){
     do { 
         var x = prompt("Input course code:");
     }
     while(
-        (isNaN(Number(x)) && x.length != 4)
+        (isNaN(Number(x)) || x.length != 4)
         );
 
     let create = true
-    for (i in courseList) {
-        for (a in courseList[i]) {
-            if (courseList[i][a] === ('ACIT '+ x) || ('MATH '+ x) || ('ORGB '+ x) || ('COMM '+ x)) {
-                console.log("Yes I am taking the course: "+courseList[i]['code'])
+    for (i in courselist) {
+        for (a in courselist[i]) {
+            if (courselist[i][a].includes(String(x))) {
+                var classitem = document.getElementsByClassName('c'+String(x))
+                classitem[0].style.backgroundColor = "green"
+                classitem[1].style.backgroundColor = "green"
+                // console.log("Yes I am taking the course: "+courselist[i]['code'])
                 create = false
             }
         }
     }
 
     if (create == true){
-        courseList['class'+classnum] = {code: "ACIT "+x, name: null}
-        console.log("Successfully added class "+courseList['class4']['code'])
+        courseList['class'+classnum] = {code: String(x), date: null}
+        console.log("Successfully added class "+courseList['class'+classnum]['code'])
+        var addGrid = document.createElement("div")
+        addGrid.id = "fork"
+        document.getElementById("append").appendChild(addGrid)
+        var addGrid1 = document.createElement("a")
+        addGrid1.innerHTML = x
+        addGrid1.href = 'https://www.bcit.ca'
+        document.getElementById("fork").appendChild(addGrid1)
+        var addGrid2 = document.createElement("p")
+        addGrid2.innerHTML = "Fall 2020"
+        document.getElementById("fork").appendChild(addGrid2)
+        var addGrid3 = document.createElement("div")
+        addGrid3.id = 'spoon'
+        document.getElementById("append").appendChild(addGrid3)
+        var addGrid4 = document.createElement("p")
+        addGrid4.innerHTML = "N/A"
+        document.getElementById("spoon").appendChild(addGrid4)
     }
 }
-let courselist = createCourseArray()
-findCourse(courselist)
+let courselist, classnum = createCourseArray()
+findCourse(courseList, classnum)

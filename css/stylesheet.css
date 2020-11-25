@@ -54,6 +54,7 @@ article {
     margin: 0%;
 }
 
+
 @media screen and (max-width: 600px) {
     article {
         grid-template-columns: auto;
